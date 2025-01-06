@@ -25,7 +25,7 @@ class CausalIdentifcation():
       """
 
 
-    def __init__(self, data, treatment: str, outcome: str, dag, model=None, identified_estimand=None):
+    def __init__(self, data, treatment: str, outcome: str, dag=None, model=None, identified_estimand=None):
         
         self.data = data
         self.treatment = treatment

@@ -14,8 +14,6 @@ class NonLinear_CausalDiscovery():
     """
     Main class for causal discovery (Non-linear). Instances of this class will learn a DAG from input data using a specified method. Instantiating this class will automatically learn a DAG from the input data using the provided method.
 
-    Linear class to be added later.
-
     Parameters
     ----------
     data : np.ndarray
@@ -82,6 +80,8 @@ class NonLinear_CausalDiscovery():
             raise ValueError('Invalid pruning method. Supports either "percent" or "absolute".')
 
         dot = gr.Digraph()
+        for name in self.col_names:
+            dot.node(name)
 
         for i in range(adj_matrix.shape[0]):
             for j in range(adj_matrix.shape[1]):
@@ -152,6 +152,9 @@ class Linear_CausalDiscovery():
             raise ValueError('Invalid pruning method. Supports either "percent" or "absolute".')
 
         dot = gr.Digraph()
+
+        for name in self.col_names:
+            dot.node(name)
 
         for i in range(adj_matrix.shape[0]):
             for j in range(adj_matrix.shape[1]):
